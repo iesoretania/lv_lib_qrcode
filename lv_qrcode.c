@@ -75,8 +75,8 @@ lv_res_t lv_qrcode_update(lv_obj_t * qrcode, const void * data, uint32_t data_le
 
     if(data_len > qrcodegen_BUFFER_LEN_MAX) return LV_RES_INV;
 
-    uint8_t qr0[qrcodegen_BUFFER_LEN_MAX];
-    uint8_t data_tmp[qrcodegen_BUFFER_LEN_MAX];
+    static uint8_t qr0[qrcodegen_BUFFER_LEN_MAX];
+    static uint8_t data_tmp[qrcodegen_BUFFER_LEN_MAX];
     memcpy(data_tmp, data, data_len);
 
     bool ok = qrcodegen_encodeBinary(data_tmp, data_len,
