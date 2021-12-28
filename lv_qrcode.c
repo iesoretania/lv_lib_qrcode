@@ -153,7 +153,7 @@ void lv_qrcode_delete(lv_obj_t * qrcode)
 {
     lv_img_dsc_t * img = lv_canvas_get_img(qrcode);
     lv_img_cache_invalidate_src(img);
-    lv_mem_free(img->data);
+    lv_mem_free((void *) img->data);
     lv_obj_del(qrcode);
 }
 
